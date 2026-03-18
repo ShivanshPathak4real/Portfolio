@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevDudes — Building the Future with Code</title>
+ 
+  <!-- ============================================================
+       GOOGLE FONTS — Orbitron (display), Syne (headings), JetBrains Mono (code/labels)
+       To change fonts, replace the URL below and update font-family in style.css
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;800&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+ 
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <!-- ============================================================
+       LOADING SCREEN — Shown on first page load, hidden by JS
+       ============================================================ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">DD</div>
+      <div class="loader-bar"><span></span></div>
+      <p class="loader-text">Initializing DevDudes...</p>
+    </div>
+  </div>
+ 
+  <!-- ============================================================
+       CUSTOM CURSOR — Two-element cursor (dot + ring)
+       ============================================================ -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+ 
+  <!-- ============================================================
+       SCROLL PROGRESS INDICATOR — Top bar that fills as you scroll
+       ============================================================ -->
+  <div id="scroll-progress"></div>
+ 
+  <!-- ============================================================
+       FLOATING NAVIGATION — Sidebar nav with icons + labels
+       Collapses to hamburger on mobile
+       ============================================================ -->
+  <nav id="floating-nav">
+    <div class="nav-brand">
+      <span class="brand-text">DEV<span class="accent">DUDES</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero"          class="nav-link active" data-section="hero">       <span class="nav-icon">⬡</span><span class="nav-label">Home</span></a></li>
+      <li><a href="#about"         class="nav-link"        data-section="about">      <span class="nav-icon">◈</span><span class="nav-label">About</span></a></li>
+      <li><a href="#projects"      class="nav-link"        data-section="projects">   <span class="nav-icon">◉</span><span class="nav-label">Projects</span></a></li>
+      <li><a href="#education"     class="nav-link"        data-section="education">  <span class="nav-icon">◎</span><span class="nav-label">Education</span></a></li>
+      <li><a href="#achievements"  class="nav-link"        data-section="achievements"><span class="nav-icon">◆</span><span class="nav-label">Wins</span></a></li>
+      <li><a href="#contact"       class="nav-link"        data-section="contact">    <span class="nav-icon">◇</span><span class="nav-label">Connect</span></a></li>
+    </ul>
+    <!-- Hamburger toggle for mobile -->
+    <button id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+ 
+  <!-- ============================================================
+       SECTION 1: HERO
+       ============================================================ -->
+  <section id="hero" class="section">
+ 
+    <!-- Animated particle canvas background -->
+    <canvas id="particle-canvas"></canvas>
+ 
+    <!-- Grid overlay for depth effect -->
+    <div class="hero-grid-overlay"></div>
+ 
+    <div class="hero-content">
+ 
+      <!-- Eyebrow text with glitch effect -->
+      <p class="hero-eyebrow glitch-text" data-text="MITS GWALIOR · CS FIRST YEAR">
+        MITS GWALIOR · CS FIRST YEAR
+      </p>
+ 
+      <!-- Main logo title -->
+      <h1 class="hero-title">
+        <span class="word-reveal">Dev</span><span class="word-reveal accent">Dudes</span>
+      </h1>
+ 
+      <p class="hero-tagline">Bringing Innovation</p>
+ 
+      <!-- ============================================================
+           TEAM CARDS — Edit names, roles, skills, and image paths here
+           Image path: assets/images/FILENAME.jpg
+           Recommended size: 300×300px
+           ============================================================ -->
+      <div class="hero-team">
+ 
+        <!-- Team Member 1: Shivansh -->
+        <div class="hero-card" data-member="1">
+          <div class="card-glow"></div>
+          <div class="card-avatar">
+            <!-- Replace shivansh.jpg with actual photo -->
+            <img src="assets/images/Shivansh.jpeg"
+                 alt="Shivansh Pathak"
+                 onerror="this.src='https://placehold.co/300x300/0a0a0f/00ffe7?text=SP'" />
+            <div class="avatar-ring"></div>
+          </div>
+          <div class="card-info">
+            <h2 class="member-name">Shivansh Pathak</h2>
+            <p class="member-role">Full Stack Developer · Creative Thinker</p>
+            <div class="member-tags">
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">JS</span>
+              <span class="tag">SQL</span>
+              <span class="tag">HTML & CSS</span>
+
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Team Member 2: Risikesh -->
+        <div class="hero-card" data-member="2">
+          <div class="card-glow"></div>
+          <div class="card-avatar">
+            <!-- Replace risikesh.jpg with actual photo -->
+            <img src="assets/images/Risikesh.jpeg"
+                 alt="Risikesh Singh Bhadouria"
+                 onerror="this.src='https://placehold.co/300x300/0a0a0f/ff2d87?text=RSB'" />
+            <div class="avatar-ring"></div>
+          </div>
+          <div class="card-info">
+            <h2 class="member-name">Risikesh Singh Bhadouria</h2>
+            <p class="member-role">Full Stack Developer · Problem Solver</p>
+            <div class="member-tags">
+              <span class="tag">C++</span>
+              <span class="tag">JS</span>
+              <span class="tag">HTML & CSS</span>
+            </div>
+          </div>
+        </div>
+ 
+      </div><!-- /hero-team -->
+ 
+      <!-- Call-to-action buttons -->
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact"  class="btn btn-outline">Get in Touch</a>
+      </div>
+ 
+    </div><!-- /hero-content -->
+ 
+    <!-- Scroll down hint -->
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+ 
+  </section>
+ 
+  <!-- ============================================================
+       SECTION 2: ABOUT
+       ============================================================ -->
+  <section id="about" class="section">
+    <div class="section-container">
+ 
+      <div class="section-header reveal">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About <span class="accent">Us</span></h2>
+        <p class="section-subtitle">Two curious minds on a mission to build cool things.</p>
+      </div>
+ 
+      <div class="about-grid">
+ 
+        <!-- About: Shivansh -->
+        <div class="about-card reveal">
+          <div class="about-avatar">
+            <!-- Replace with actual photo -->
+            <img src="assets/images/Shivansh.jpeg"
+                 alt="Shivansh Pathak"
+                 onerror="this.src='https://placehold.co/300x300/0a0a0f/00ffe7?text=SP'" />
+          </div>
+          <div class="about-body">
+            <h3>Shivansh Pathak</h3>
+            <p class="about-bio">
+              A first-year CSBS student at MITS, Gwalior. I completed my schooling in Jabalpur under CBSE with Computer Science and have been building my tech skills since 2023.
+
+I enjoy exploring new fields, taking on challenges, and striving to excel in everything I do.
+            </p>
+            <ul class="about-facts">
+              <li><span class="fact-icon">🎓</span> B.Tech CSBS · MITS Gwalior</li>
+              <li><span class="fact-icon">📍</span> Gwalior, Madhya Pradesh</li>
+              <li><span class="fact-icon">💡</span> Loves Web-Designing &amp; DSA</li>
+            </ul>
+          </div>
+        </div>
+ 
+        <!-- About: Risikesh -->
+        <div class="about-card reveal">
+          <div class="about-avatar">
+            <!-- Replace with actual photo -->
+            <img src="assets/images/Risikesh.jpeg"
+                 alt="Risikesh Singh Bhadouria"
+                 onerror="this.src='https://placehold.co/300x300/0a0a0f/ff2d87?text=RSB'" />
+          </div>
+          <div class="about-body">
+            <h3>Risikesh Singh Bhadouria</h3>
+            <p class="about-bio">
+              A first-year CSBS student at MITS, Gwalior. Completed his schooling in Gwalior and is passionate about software development and building websites.
+
+Enjoys exploring new technologies, improving his skills, and creating impactful digital solutions.
+
+            </p>
+            <ul class="about-facts">
+              <li><span class="fact-icon">🎓</span> B.Tech CSBS · MITS Gwalior</li>
+              <li><span class="fact-icon">📍</span> Gwalior, Madhya Pradesh</li>
+              <li><span class="fact-icon">💡</span> Loves Web-Dev &amp; Problem Solving</li>
+            </ul>
+          </div>
+        </div>
+ 
+      </div><!-- /about-grid -->
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       SECTION 3: PROJECTS
+       ============================================================ -->
+  <section id="projects" class="section">
+    <div class="section-container">
+ 
+      <div class="section-header reveal">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Our <span class="accent">Projects</span></h2>
+        <p class="section-subtitle">What we've built, what's cooking, and what's next.</p>
+      </div>
+ 
+      <!-- Filter Tabs -->
+      <div class="project-tabs reveal">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="completed">Completed</button>
+        <button class="tab-btn" data-filter="upcoming">Upcoming</button>
+        <button class="tab-btn" data-filter="planned">Planned</button>
+      </div>
+ 
+      <!-- ============================================================
+           PROJECTS GRID — To add a project, duplicate a .project-card div.
+           data-status options: "completed" | "upcoming" | "planned"
+           ============================================================ -->
+      <div class="projects-grid" id="projects-grid">
+ 
+        <!-- PROJECT 1 -->
+        <div class="project-card reveal" data-status="completed">
+          <div class="project-status-badge completed">✓ Completed</div>
+          <div class="project-icon">💼</div>
+          <h3 class="project-title">DevDudes Portfolio</h3>
+          <p class="project-desc">
+            This portfolio site — fully responsive dark-mode developer portfolio
+            built with pure HTML, CSS, and vanilla JS. Zero frameworks.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+          <!-- Replace # with actual GitHub / live link -->
+          <a href="#" class="project-link" target="_blank" rel="noopener">View Project →</a>
+        </div>
+ 
+        <!-- PROJECT 2 -->
+        <div class="project-card reveal" data-status="completed">
+          <div class="project-status-badge completed">✓ Completed</div>
+          <div class="project-icon">🤝</div>
+          <h3 class="project-title">Crowd-Solve</h3>
+          <p class="project-desc">
+            CrowdSolve is a platform that uses collective intelligence to solve real-world problems. It connects people and ideas to deliver smarter solutions.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+          </div>
+          <a href="#" class="project-link" target="_blank" rel="noopener">View Project →</a>
+        </div>
+ 
+        <!-- PROJECT 3 -->
+        <div class="project-card reveal" data-status="completed">
+          <div class="project-status-badge completed">✓ Completed</div>
+          <div class="project-icon">📚</div>
+          <h3 class="project-title">College Admission Portal</h3>
+          <p class="project-desc">
+           College Admission Portal enables students to apply, track applications, and manage admissions seamlessly in one place.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+          <span class="project-eta">ETA: Q3 2025</span>
+        </div>
+ 
+        <!-- PROJECT 4 -->
+        <div class="project-card reveal" data-status="upcoming">
+          <div class="project-status-badge upcoming">⚡ In Progress</div>
+          <div class="project-icon">🧳</div>
+          <h3 class="project-title">Stay-Nest</h3>
+          <p class="project-desc">
+            A smart hostel platform that manages rooms, complaints, and communication in one place for a smoother living experience.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">SQL</span>
+          </div>
+          <span class="project-eta">ETA: Q4 2025</span>
+        </div>
+ 
+        <!-- PROJECT 5 -->
+        <div class="project-card reveal" data-status="Campus-Care">
+          <div class="project-status-badge upcoming">⚡ In Progress</div>
+          <div class="project-icon">🏫</div>
+          <h3 class="project-title">Campus-Care</h3>
+          <p class="project-desc">
+            Campus-Care is a university-focused platform where students can report issues and collaborate on solutions. It streamlines communication with authorities for faster, more effective problem resolution.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+          <span class="project-eta">Concept Stage</span>
+        </div>
+ 
+        <!-- PROJECT 6 -->
+        <div class="project-card reveal" data-status="planned">
+          <div class="project-status-badge planned">🔮 Planned</div>
+          <div class="project-icon">🌐</div>
+          <h3 class="project-title">WebsForSale</h3>
+          <p class="project-desc">
+            WebsForSale is a platform to browse, buy, and sell ready-made websites with ease. It connects creators and buyers in a seamless digital marketplace.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Blockchain</span><span class="tag">Web3</span><span class="tag">Education</span>
+          </div>
+          <span class="project-eta">Concept Stage</span>
+        </div>
+ 
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       SECTION 4: EDUCATION
+       ============================================================ -->
+  <section id="education" class="section">
+    <div class="section-container">
+ 
+      <div class="section-header reveal">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Edu<span class="accent">cation</span></h2>
+        <p class="section-subtitle">Where we're learning to change the world.</p>
+      </div>
+ 
+      <div class="education-columns">
+
+        <!-- ============================================================
+             SHIVANSH EDUCATION COLUMN
+             ============================================================ -->
+        <div class="education-col">
+          <h3 class="edu-col-name">Shivansh <span class="accent">Pathak</span></h3>
+          <div class="education-timeline">
+
+            <!-- Current: MITS -->
+            <div class="timeline-item reveal">
+              <div class="timeline-dot active"></div>
+              <div class="timeline-card current">
+                <div class="timeline-badge">Current</div>
+                <div class="edu-logo-wrap">
+                  <img src="assets/images/mits-logo.png"
+                       alt="MITS Gwalior"
+                       class="edu-logo"
+                       onerror="this.style.display='none'" />
+                </div>
+                <h3 class="edu-institute">Madhav Institute of Technology &amp; Science</h3>
+                <p class="edu-location">📍 Gwalior, Madhya Pradesh</p>
+                <p class="edu-degree">B.Tech — Computer Science &amp; Business Systems</p>
+                <p class="edu-year">2025 – 2029 · First Year</p>
+                <ul class="edu-highlights">
+                  <li>Coursework: Programming Fundamentals, Discrete Mathematics, Digital Electronics, Data Analysis, System Design, Business Analysis</li>
+                  <li>Active in coding clubs and college hackathons</li>
+                  <li>CGPA : 8.35<em><!-- Add CGPA --></em></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Previous: School -->
+            <div class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <h3 class="edu-institute">Higher Secondary School</h3>
+                <p class="edu-degree">Class XII — PCM with Computer Science</p>
+                <!-- Replace with actual school name, year, and percentage -->
+                <p class="edu-year">Completed: 2025</p>
+                <ul class="edu-highlights">
+                  <li>Stream: Science (Physics, Chemistry, Mathematics)</li>
+                  
+                </ul>
+              </div>
+            </div>
+
+          </div><!-- /education-timeline -->
+        </div><!-- /education-col Shivansh -->
+
+        <!-- ============================================================
+             RISIKESH EDUCATION COLUMN
+             ============================================================ -->
+        <div class="education-col">
+          <h3 class="edu-col-name">Risikesh <span class="accent">Singh Bhadouria</span></h3>
+          <div class="education-timeline">
+
+            <!-- Current: MITS -->
+            <div class="timeline-item reveal">
+              <div class="timeline-dot active"></div>
+              <div class="timeline-card current">
+                <div class="timeline-badge">Current</div>
+                <div class="edu-logo-wrap">
+                  <img src="assets/images/mits-logo.png"
+                       alt="MITS Gwalior"
+                       class="edu-logo"
+                       onerror="this.style.display='none'" />
+                </div>
+                <h3 class="edu-institute">Madhav Institute of Technology &amp; Science</h3>
+                <p class="edu-location">📍 Gwalior, Madhya Pradesh</p>
+                <p class="edu-degree">B.Tech — Computer Science &amp; Business Systems</p>
+                <p class="edu-year">2025 – 2029 · First Year</p>
+                <ul class="edu-highlights">
+                  <li>Coursework: Programming Fundamentals, Discrete Mathematics, Digital Electronics, Data Analysis, System Design, Business Analysis</li>
+                  <li>Active in coding clubs and college hackathons</li>
+                  <li>CGPA : 8.35<em><!-- Add CGPA --></em></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Previous: School -->
+            <div class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <h3 class="edu-institute">Higher Secondary School</h3>
+                <p class="edu-degree">Class XII — PCM</p>
+                <!-- Replace with actual school name, year, and percentage -->
+                <p class="edu-year">Completed: 2024</p>
+                <ul class="edu-highlights">
+                  <li>Stream: Science (Physics, Chemistry, Mathematics)</li>
+                 
+                </ul>
+              </div>
+            </div>
+
+          </div><!-- /education-timeline -->
+        </div><!-- /education-col Risikesh -->
+
+      </div><!-- /education-columns -->
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       SECTION 5: ACHIEVEMENTS
+       ============================================================ -->
+  <section id="achievements" class="section">
+    <div class="section-container">
+ 
+      <div class="section-header reveal">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Achieve<span class="accent">ments</span></h2>
+        <p class="section-subtitle">Small wins on a long journey.</p>
+      </div>
+ 
+      <!-- ============================================================
+           ACHIEVEMENTS — Add or remove cards freely.
+           Each card has: icon (emoji), title, description, date.
+           ============================================================ -->
+      <div class="achievements-grid">
+ 
+        <div class="achievement-card reveal">
+          <div class="ach-icon">🏆</div>
+          <h3>Hackathon Achievements</h3>
+          <p>Participated in the college Hackathon (Hackignite 1.0) as first-year students — proposed CrowdSolve and got 5th rank among 150 teams. Participated in SIH 2025 and proposed an Attendance Management System.</p>
+          <span class="ach-date">2025</span>
+        </div>
+ 
+        <div class="achievement-card reveal">
+          <div class="ach-icon">⭐</div>
+          <h3>Academic Achievements</h3>
+          <p>Maintained 8+ SGPA in our first semester while simultaneously building multiple impactful projects.</p>
+          <span class="ach-date">2025</span>
+        </div>
+ 
+        <div class="achievement-card reveal">
+          <div class="ach-icon">🌐</div>
+          <h3>Deplayed Websites</h3>
+          <p>Deployed CrowdSolve on GitHub Pages — a major milestone in our web dev journey. And moving ahead to create and deploy more revolutionary projects.</p>
+          <span class="ach-date">2025</span>
+        </div>
+ 
+ 
+      </div><!-- /achievements-grid -->
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       SECTION 6: CONTACT / SOCIAL LINKS
+       ============================================================ -->
+  <section id="contact" class="section">
+    <div class="section-container">
+ 
+      <div class="section-header reveal">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+        <p class="section-subtitle">We're one message away. Find us on the internet.</p>
+      </div>
+ 
+      <div class="contact-grid">
+ 
+        <!-- ============================================================
+             SHIVANSH SOCIAL LINKS
+             Replace href values with real URLs:
+             GitHub:    https://github.com/ShivanshPathak4real
+             LinkedIn:  https://linkedin.com/in/YOUR_USERNAME
+             Instagram: https://instagram.com/YOUR_USERNAME
+             ============================================================ -->
+        <div class="contact-card reveal">
+          <h3 class="contact-name">Shivansh Pathak</h3>
+          <div class="social-links">
+            <a href="https://github.com/ShivanshPathak4real" class="social-btn github" target="_blank" rel="noopener">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </span>GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/shivansh-pathak-96a398372?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn linkedin" target="_blank" rel="noopener">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </span>LinkedIn
+            </a>
+            <a href="https://instagram.com/shivansh.4real" class="social-btn instagram" target="_blank" rel="noopener">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </span>Instagram
+            </a>
+          </div>
+        </div>
+ 
+        <!-- ============================================================
+             RISIKESH SOCIAL LINKS
+             Replace href values with real URLs
+             ============================================================ -->
+        <div class="contact-card reveal">
+          <h3 class="contact-name">Risikesh Singh Bhadouria</h3>
+          <div class="social-links">
+            <a href="https://github.com/risikeshbhadouria2006" class="social-btn github" target="_blank" rel="noopener">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </span>GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/risikesh-bhadouria-96b1a2383?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn linkedin" target="_blank" rel="noopener">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </span>LinkedIn
+            </a>
+            <a href="https://www.instagram.com/risikeshbhadouria?igsh=MWc3OTVjNzE5eTlpbA==" class="social-btn instagram" target="_blank" rel="noopener">
+              <span class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </span>Instagram
+            </a>
+          </div>
+        </div>
+ 
+      </div><!-- /contact-grid -->
+ 
+      <!-- Email CTA -->
+      <div class="contact-cta reveal">
+        <p>Want to collaborate or just say hi?</p>
+        <!-- Replace with actual team email -->
+        <a href="mailto:thetechnocrats2026@gmail.com?subject=Contact%20from%20Website&body=Hello%20Technocrats,%20I%20want%20to%20connect%20with%20you" class="btn btn-primary">
+  Drop Us a Mail 📬
+</a>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">DEV<span class="accent">DUDES</span></p>
+      <p class="footer-copy">© 2025 Shivansh &amp; Risikesh · MITS Gwalior · Made with ❤️ and too much caffeine</p>
+      <p class="footer-quote">"The best way to predict the future is to create it."</p>
+    </div>
+  </footer>
+ 
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
